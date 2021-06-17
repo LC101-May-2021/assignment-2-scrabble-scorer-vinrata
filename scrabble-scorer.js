@@ -91,9 +91,9 @@ console.log(z + " is worth " + letterPoints3+" points.");
 let scrabbleScore;
 
 const scoringAlgorithms ={ 
-  1: ['Simple Score', 'Each letter is worth 1 point','simpleScore()'],
-  2: ['Bonus Vowels','Vowels are 3 pts, consonants are 1 pt','vowelBonusScore()'],
-  3: ['Scrabble','The traditional scoring algorithm','oldScrabbleScorer()']
+  1: ['Simple Score', 'Each letter is worth 1 point.','simpleScore()'],
+  2: ['Bonus Vowels','Vowels are 3 pts, consonants are 1 pt.','vowelBonusScore()'],
+  3: ['Scrabble','The traditional scoring algorithm.','oldScrabbleScorer()']
   };
 
 function scorerPrompt(choicer) {
