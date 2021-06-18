@@ -16,6 +16,8 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
+
+
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
@@ -111,12 +113,21 @@ function scorerPrompt(word) {
     answer = input.question("Enter 0, 1, or 2: ");
   }
 
-
 }
   //answer = input.question("")
-function transform() {};
-
-let newPointStructure;
+function transform(oldPointStructure) {
+  let newTransform = {};
+  for (item in oldPointStructure){
+    let newArray = oldPointStructure[item];
+    for (let i =0;i<newArray.length;i++){
+    newTransform[(oldPointStructure[item][i])] = item;
+    }
+  }
+  console.log(newTransform);
+};
+//objectName["(oldPointStructure['key'][index])"] = propertyValue;
+//objectName["new-key"] = propertyValue;
+let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
    initialPrompt();
