@@ -3,8 +3,8 @@
 const input = require("readline-sync");
 let word = "";
 const vowelsPoints = {
-  1:['A','E','I','O','U'],
-  2:['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z']
+  3:['A','E','I','O','U'],
+  1:['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z']
 };
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
@@ -22,9 +22,9 @@ function oldScrabbleScorer(word) {
  
 	for (let i = 0; i < word.length; i++) {
  
-	  for (const pointValue in vowelsPoints) {
+	  for (const pointValue in oldPointStructure) {
  
-		 if (vowelsPoints[pointValue].includes(word[i])) {
+		 if (oldPointStructure[pointValue].includes(word[i])) {
 			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
 		 }
  
@@ -49,7 +49,7 @@ let letterPoints2 = 0;
 }
   return letterPoints2;
 }
-
+//console.log(simpleScore("candy"));
 
 //let vowelBonusScore;
 function vowelBonusScore(word){
@@ -58,9 +58,9 @@ function vowelBonusScore(word){
  
 	for (let i = 0; i < word.length; i++) {
  
-	  for (const pointValue in oldPointStructure) {
+	  for (const pointValue in vowelsPoints) {
  
-		 if (oldPointStructure[pointValue].includes(word[i])) {
+		 if (vowelsPoints[pointValue].includes(word[i])) {
 			letterPoints3 += `Points for '${word[i]}': ${pointValue}\n`
 		 }
  
@@ -84,7 +84,7 @@ scorerFunction: vowelBonusScore
 const scoringAlgorithms2 = {
 name:'Scrabble',
 description:'The traditional scoring algorithm',
-scorerFunction:oldPointStructure
+scorerFunction:oldScrabbleScorer
 };
 const scoringAlgorithms = [scoringAlgorithms0,scoringAlgorithm1,scoringAlgorithms2];
 
@@ -93,14 +93,22 @@ const scoringAlgorithms = [scoringAlgorithms0,scoringAlgorithm1,scoringAlgorithm
 //2:['Scrabble','The traditional scoring algorithm','oldPointStructure()']
 
 
-function scorerPrompt() {
+function scorerPrompt(word) {
   console.log('Which scoring algorithm would you like to use?');
   console.log('0 - Simple: One point per character');
   console.log('1 - Vowel Bonus: Vowels are worth 3 points');
   console.log('2 - Scrabble: Uses scrabble point system');
-  answer = input.question("Enter 0, 1, or 2: ");
-  if (answer == '0'){
+  let answer = input.question("Enter 0, 1, or 2: ");
 
+  if (answer == '0'){
+    
+      console.log(scoringAlgorithms[0].scorerFunction(word));
+  } else if (answer == '1'){
+      console.log(scoringAlgorithms[1].scorerFunction(word));
+  } else if (answer == '2'){
+      console.log(scoringAlgorithms[2].scorerFunction(word));
+  } else {
+    answer = input.question("Enter 0, 1, or 2: ");
   }
 
 
@@ -112,7 +120,7 @@ let newPointStructure;
 
 function runProgram() {
    initialPrompt();
-   scorerPrompt();
+   scorerPrompt(word);
    console.log("your word is: " + word);
 
    //console.log(vowelBonusScore(word));
