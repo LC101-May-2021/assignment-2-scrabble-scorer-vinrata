@@ -1,6 +1,25 @@
 // inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
+let letterPointsFun = 0;
+const scoringAlgorithms0 = {
+name:'Simple Score',
+description:'Each letter is worth 1 point.',
+scorerFunction: simpleScore
+};
+const scoringAlgorithm1 = {
+name:'Bonus Vowels',
+description:'Vowels are 3 pts, consonants are 1 pt.',
+scorerFunction: vowelBonusScore
+};
+const scoringAlgorithms2 = {
+name:'Scrabble',
+description:'The traditional scoring algorithm',
+scorerFunction: scrabbleScorer
+};
+const scoringAlgorithms = [scoringAlgorithms0,scoringAlgorithm1,scoringAlgorithms2];
 
 const input = require("readline-sync");
+
+
 let word = "";
 const vowelsPoints = {
   3:['A','E','I','O','U'],
@@ -56,7 +75,7 @@ let letterPoints2 = 0;
 //let vowelBonusScore;
 function vowelBonusScore(word){
 	word = word.toUpperCase();
-	let letterPoints3 = "";
+	let letterPoints3 = '';
  
 	for (let i = 0; i < word.length; i++) {
  
@@ -67,28 +86,14 @@ function vowelBonusScore(word){
 		 }
  
 	  }
+    //letterPoints3+=;
 	}
 	return letterPoints3;
  }
 
 
 let scrabbleScore;
-const scoringAlgorithms0 = {
-name:'Simple Score',
-description:'Each letter is worth 1 point.',
-scorerFunction: simpleScore
-};
-const scoringAlgorithm1 = {
-name:'Bonus Vowels',
-description:'Vowels are 3 pts, consonants are 1 pt.',
-scorerFunction: vowelBonusScore
-};
-const scoringAlgorithms2 = {
-name:'Scrabble',
-description:'The traditional scoring algorithm',
-scorerFunction: scrabbleScorer
-};
-const scoringAlgorithms = [scoringAlgorithms0,scoringAlgorithm1,scoringAlgorithms2];
+
 
 
 //1:['Bonus Vowels', 'Vowels are 3 pts, consonants are 1 pt.',"vowelBonusScore"],
@@ -129,11 +134,12 @@ function transform(oldPointStructure) {
 //objectName["new-key"] = propertyValue;
 let newPointStructure = transform(oldPointStructure);
 
-function runProgram() {
-   initialPrompt();
+function runProgram(x) {
+  initialPrompt();
   console.log("your word is: " + word);
 
-   scorerPrompt(word);
+  scorerPrompt(word);
+  console.log(letterPointsFun + " points.");
 
    //console.log(vowelBonusScore(word));
    //console.log(simpleScore(word));
