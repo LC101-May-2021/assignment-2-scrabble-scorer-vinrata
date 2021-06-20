@@ -18,15 +18,15 @@ const oldPointStructure = {
 
 
 
-function oldScrabbleScorer(word) {
+function ScrabbleScore(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
  
 	for (let i = 0; i < word.length; i++) {
  
-	  for (const pointValue in oldPointStructure) {
+	  for (const pointValue in newPointStructure) {
  
-		 if (oldPointStructure[pointValue].includes(word[i])) {
+		 if (newPointStructure[pointValue].includes(word[i])) {
 			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
 		 }
  
@@ -86,7 +86,7 @@ scorerFunction: vowelBonusScore
 const scoringAlgorithms2 = {
 name:'Scrabble',
 description:'The traditional scoring algorithm',
-scorerFunction:oldScrabbleScorer
+scorerFunction: ScrabbleScore
 };
 const scoringAlgorithms = [scoringAlgorithms0,scoringAlgorithm1,scoringAlgorithms2];
 
@@ -123,7 +123,7 @@ function transform(oldPointStructure) {
     newTransform[(oldPointStructure[item][i])] = item;
     }
   }
-  console.log(newTransform);
+  //console.log(newTransform);
 };
 //objectName["(oldPointStructure['key'][index])"] = propertyValue;
 //objectName["new-key"] = propertyValue;
@@ -131,8 +131,9 @@ let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
    initialPrompt();
+  console.log("your word is: " + word);
+
    scorerPrompt(word);
-   console.log("your word is: " + word);
 
    //console.log(vowelBonusScore(word));
    //console.log(simpleScore(word));
