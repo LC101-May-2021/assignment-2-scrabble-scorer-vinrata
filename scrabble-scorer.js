@@ -18,7 +18,7 @@ const oldPointStructure = {
 
 
 
-function ScrabbleScore(word) {
+function scrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
  
@@ -86,7 +86,7 @@ scorerFunction: vowelBonusScore
 const scoringAlgorithms2 = {
 name:'Scrabble',
 description:'The traditional scoring algorithm',
-scorerFunction: ScrabbleScore
+scorerFunction: scrabbleScorer
 };
 const scoringAlgorithms = [scoringAlgorithms0,scoringAlgorithm1,scoringAlgorithms2];
 
