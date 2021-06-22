@@ -75,23 +75,24 @@ function scrabbleScore(word,newPointStructure){
  
 	  }
 	return letterPoints;
+
  
 };
 
 const scoringAlgorithms0 = {
 name:'Simple Score',
 description:'Each letter is worth 1 point.',
-scorerFunction: simpleScore
+scoringFunction: simpleScore
 };
 const scoringAlgorithms1 = {
 name:'Bonus Vowels',
 description:'Vowels are 3 pts, consonants are 1 pt.',
-scorerFunction: vowelBonusScore
+scoringFunction: vowelBonusScore
 };
 const scoringAlgorithms2 = {
 name:'Scrabble',
 description:'The traditional scoring algorithm',
-scorerFunction: scrabbleScore
+scoringFunction: scrabbleScore
 };
 const scoringAlgorithms = [scoringAlgorithms0,scoringAlgorithms1,scoringAlgorithms2];
 
@@ -107,7 +108,7 @@ function scorerPrompt(word) {
   console.log('2 - Scrabble: Uses scrabble point system');
   let answer = input.question("Enter 0, 1, or 2: ");
 
-  return (scoringAlgorithms[Number(answer)].scorerFunction(word,newPointStructure));
+  return (scoringAlgorithms[Number(answer)].scoringFunction(word,newPointStructure));
 
 }
   //answer = input.question("")
