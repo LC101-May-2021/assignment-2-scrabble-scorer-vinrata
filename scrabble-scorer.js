@@ -1,10 +1,6 @@
 // inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
 
 const input = require("readline-sync");
-const vowelsPoints = {
-  3:['A','E','I','O','U'],
-  1:['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z']
-};
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -120,7 +116,7 @@ function transform(oldPointStructure) {
   for (item in oldPointStructure){
     let newArray = oldPointStructure[item];
     for (let i =0;i<newArray.length;i++){
-    newTransform[(oldPointStructure[item][i]).toLowerCase()] = item;
+    newTransform[(oldPointStructure[item][i]).toLowerCase()] = Number(item);
     }
   }
   return newTransform;
