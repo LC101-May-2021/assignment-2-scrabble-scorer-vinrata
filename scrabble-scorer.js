@@ -58,18 +58,15 @@ function vowelBonusScore(word){
 	word = word.toLowerCase();
 	let letterPoints3 = 0;
 	for (let i = 0; i < word.length; i++) {
- 
-	  for (const pointValue in vowelsPoints) {
- 
-		 if (vowelsPoints[pointValue].includes(word[i])) {
-			letterPoints3 += Number(pointValue);
-		 }
- 
-	  }
-	}
+  if (['a','e','i','o','u'].includes(word[i])){
+	  letterPoints3 += 3;
+	}else{
+    letterPoints3++;
+  }
+  }
 	return letterPoints3;
- }
-
+ 
+}
 
 function scrabbleScore(word,newPointStructure){
   	word = word.toLowerCase();
