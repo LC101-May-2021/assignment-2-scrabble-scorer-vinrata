@@ -44,7 +44,7 @@ function initialPrompt() {
 
 function simpleScore(word){
 //return word.length();
-word = word.toUpperCase();
+word = word.toLowerCase();
 let letterPoints2 = 0;
 	for (let i = 0; i < word.length; i++) {
     letterPoints2++;
@@ -55,7 +55,7 @@ let letterPoints2 = 0;
 
 //let vowelBonusScore;
 function vowelBonusScore(word){
-	word = word.toUpperCase();
+	word = word.toLowerCase();
 	let letterPoints3 = 0;
 	for (let i = 0; i < word.length; i++) {
  
@@ -72,7 +72,7 @@ function vowelBonusScore(word){
 
 
 function scrabbleScore(word,newPointStructure){
-  	word = word.toUpperCase();
+  	word = word.toLowerCase();
 	let letterPoints = 0;
 	for (let i = 0; i < word.length; i++) {
  
@@ -123,7 +123,7 @@ function transform(oldPointStructure) {
   for (item in oldPointStructure){
     let newArray = oldPointStructure[item];
     for (let i =0;i<newArray.length;i++){
-    newTransform[(oldPointStructure[item][i])] = item;
+    newTransform[(oldPointStructure[item][i]).toLowerCase()] = item;
     }
   }
   return newTransform;
